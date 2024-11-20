@@ -4,6 +4,8 @@ import LayoutWrapper from './wrappers/LayoutWrapper';
 import HomePage from './pages/HomePage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
+import { Provider } from 'react-redux';
+import store from './redux/app/store';
 
 const routes = [
   {
@@ -38,12 +40,16 @@ const router = createBrowserRouter(routes, {
 });
 
 const App = () => {
-  return <RouterProvider
-    router={router}
-    future={{
-      v7_startTransition: true,
-    }}
-  />
+  return (
+    <Provider store={store}>
+      <RouterProvider
+        router={router}
+        future={{
+          v7_startTransition: true,
+        }}
+      />
+    </Provider>
+  )
 }
 
 export default App;
