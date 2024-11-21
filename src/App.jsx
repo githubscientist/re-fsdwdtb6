@@ -6,14 +6,14 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import { Provider } from 'react-redux';
 import store from './redux/app/store';
+import DashboardWrapper from './wrappers/DashboardWrapper';
 
 const routes = [
   {
-    path: "/",
     element: <LayoutWrapper />,
     children: [
       {
-        path: "home",
+        path: "/",
         element: <HomePage />
       },
       {
@@ -25,6 +25,10 @@ const routes = [
         element: <LoginPage />
       }
     ]
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardWrapper />
   }
 ];
 
