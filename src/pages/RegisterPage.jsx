@@ -3,6 +3,7 @@ import { selectName, selectEmail, selectPassword } from "../redux/features/auth/
 import { setName, setEmail, setPassword } from "../redux/features/auth/registerSlice";
 import { useNavigate } from "react-router-dom";
 import authServices from "../services/authServices";
+import showAlert from "../utils/showAlert";
 
 const RegisterPage = () => {
 
@@ -24,7 +25,7 @@ const RegisterPage = () => {
             });
 
             if (response.status === 201) {
-                alert("User registered successfully");
+                showAlert(response.data.message);
 
                 // clear form
                 dispatch(setName(""));
@@ -36,7 +37,7 @@ const RegisterPage = () => {
                 }, 500);
             }
         } catch (error) {
-            alert(error.response.data.message);
+            showAlert(error.response.data.message, "error");
         }
     }
 

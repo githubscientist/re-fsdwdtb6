@@ -11,6 +11,7 @@ import authLoader from './loaders/units/authLoader';
 import AdminDashboardWrapper from './wrappers/AdminDashboardWrapper';
 import Logout from './components/Logout';
 import ErrorPage from './pages/ErrorPage';
+import Alert from './components/Alert';
 
 const routes = [
   {
@@ -73,6 +74,7 @@ const router = createBrowserRouter(routes, {
 const App = () => {
   return (
     <Provider store={store}>
+      <Alert />
       <RouterProvider
         router={router}
         future={{

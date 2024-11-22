@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import authServices from "../services/authServices";
 import { useNavigate } from "react-router-dom";
+import showAlert from "../utils/showAlert";
 
 const Logout = () => {
 
@@ -10,7 +11,7 @@ const Logout = () => {
     useEffect(() => {
         authServices.logout()
             .then((response) => {
-                alert(response.data.message);
+                showAlert(response.data.message);
 
                 setTimeout(() => {
                     navigate("/login", { replace: true });
@@ -18,7 +19,7 @@ const Logout = () => {
                 }, 500);
             })
             .catch(error => {
-                alert(error.response.data.message);
+                showAlert(error.response.data.message, "error");
             })
     });
 
