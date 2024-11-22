@@ -10,6 +10,7 @@ import DashboardWrapper from './wrappers/DashboardWrapper';
 import authLoader from './loaders/units/authLoader';
 import AdminDashboardWrapper from './wrappers/AdminDashboardWrapper';
 import Logout from './components/Logout';
+import ErrorPage from './pages/ErrorPage';
 
 const routes = [
   {
@@ -49,6 +50,10 @@ const routes = [
     element: <AdminDashboardWrapper />,
     hydrateFallbackElement: <div>Loading Admin Dashboard Page...</div>,
     loader: authLoader,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />
   }
 ];
 
