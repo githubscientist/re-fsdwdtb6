@@ -16,6 +16,8 @@ const routes = [
   {
     path: "/",
     element: <LayoutWrapper />,
+    loader: authLoader,
+    hydrateFallbackElement: <div>Loading Layout Wrapper...</div>,
     children: [
       {
         path: "",

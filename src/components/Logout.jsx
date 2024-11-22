@@ -20,7 +20,7 @@ const Logout = () => {
             .catch(error => {
                 alert(error.response.data.message);
             })
-    }, []);
+    });
 
     return (
         <div>Logging out...</div>
