@@ -1,5 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { current } from '@reduxjs/toolkit'
 import { Link } from 'react-router-dom'
 
 const getNavigation = (user) => {
@@ -12,6 +13,8 @@ const getNavigation = (user) => {
     } else if (user.role === 'user') {
         return [
             { name: 'Dashboard', href: '/dashboard', current: true },
+            { name: 'Jobs', href: '/dashboard/jobs', current: false },
+            { name: 'Applied Jobs', href: '/dashboard/applied', current: false },
         ]
     } else if (user.role === 'admin') {
         return [

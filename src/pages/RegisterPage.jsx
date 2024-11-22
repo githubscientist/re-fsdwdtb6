@@ -4,9 +4,13 @@ import { setName, setEmail, setPassword } from "../redux/features/auth/registerS
 import { useNavigate } from "react-router-dom";
 import authServices from "../services/authServices";
 import showAlert from "../utils/showAlert";
+// if you are using useState
+// import { useState } from "react";
 
 const RegisterPage = () => {
 
+    // if you are using useState
+    // const [name, setName] = useState("");
     const name = useSelector(selectName);
     const email = useSelector(selectEmail);
     const password = useSelector(selectPassword);
@@ -29,6 +33,8 @@ const RegisterPage = () => {
 
                 // clear form
                 dispatch(setName(""));
+                // if you are using useState
+                // setName("");
                 dispatch(setEmail(""));
                 dispatch(setPassword(""));
 
