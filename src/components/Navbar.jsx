@@ -114,12 +114,12 @@ export default function Navbar({ user }) {
                                             </a>
                                         </MenuItem>
                                         <MenuItem>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                to="/logout"
                                                 className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
                                             >
                                                 Sign out
-                                            </a>
+                                            </Link>
                                         </MenuItem>
                                     </MenuItems>
                                 </Menu>

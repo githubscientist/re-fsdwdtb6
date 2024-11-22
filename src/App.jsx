@@ -9,6 +9,7 @@ import store from './redux/app/store';
 import DashboardWrapper from './wrappers/DashboardWrapper';
 import authLoader from './loaders/units/authLoader';
 import AdminDashboardWrapper from './wrappers/AdminDashboardWrapper';
+import Logout from './components/Logout';
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
         path: "login",
         element: <LoginPage />,
         hydrateFallbackElement: <div>Loading Login Page...</div>,
+      },
+      {
+        path: "logout",
+        element: <Logout />,
+        hydrateFallbackElement: <div>Logging out...</div>,
       }
     ]
   },
