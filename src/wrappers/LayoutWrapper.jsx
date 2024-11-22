@@ -4,7 +4,9 @@ import Navbar from "../components/Navbar";
 const LayoutWrapper = () => {
     return (
         <>
-            <Navbar />
+            <Navbar
+                user={null}
+            />
             <div className="container">
                 <Outlet />
             </div>

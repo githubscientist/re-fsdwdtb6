@@ -7,28 +7,42 @@ import LoginPage from './pages/LoginPage';
 import { Provider } from 'react-redux';
 import store from './redux/app/store';
 import DashboardWrapper from './wrappers/DashboardWrapper';
+import authLoader from './loaders/units/authLoader';
+import AdminDashboardWrapper from './wrappers/AdminDashboardWrapper';
 
 const routes = [
   {
+    path: "/",
     element: <LayoutWrapper />,
     children: [
       {
-        path: "/",
-        element: <HomePage />
+        path: "",
+        element: <HomePage />,
+        hydrateFallbackElement: <div>Loading Home Page...</div>,
       },
       {
         path: "register",
-        element: <RegisterPage />
+        element: <RegisterPage />,
+        hydrateFallbackElement: <div>Loading Register Page...</div>,
       },
       {
         path: "login",
-        element: <LoginPage />
+        element: <LoginPage />,
+        hydrateFallbackElement: <div>Loading Login Page...</div>,
       }
     ]
   },
   {
     path: "/dashboard",
-    element: <DashboardWrapper />
+    element: <DashboardWrapper />,
+    hydrateFallbackElement: <div>Loading Dashboard Page...</div>,
+    loader: authLoader
+  },
+  {
+    path: "/admin/dashboard",
+    element: <AdminDashboardWrapper />,
+    hydrateFallbackElement: <div>Loading Admin Dashboard Page...</div>,
+    loader: authLoader,
   }
 ];
 

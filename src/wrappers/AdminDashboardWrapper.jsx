@@ -1,7 +1,7 @@
 import { Navigate, Outlet, useLoaderData } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-const DashboardWrapper = () => {
+const AdminDashboardWrapper = () => {
 
     const user = useLoaderData();
 
@@ -9,8 +9,8 @@ const DashboardWrapper = () => {
         return <Navigate to="/login" />
     }
 
-    if (user.role === 'admin') {
-        return <Navigate to="/admin/dashboard" />
+    if (user.role !== 'admin') {
+        return <Navigate to="/dashboard" />
     }
 
     return (
@@ -19,10 +19,10 @@ const DashboardWrapper = () => {
                 user={user}
             />
             <div className="container mx-auto p-4 mt-4">
-                <Outlet />
-            </div>
+                < Outlet />
+            </div >
         </>
     )
 }
 
-export default DashboardWrapper;
+export default AdminDashboardWrapper;
